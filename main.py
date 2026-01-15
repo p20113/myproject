@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title('나의 첫 웹 서비스 만들기!!')
+st.title('나1의 첫 웹 서비스 만들기!!')
 
 # 사용자 입력 받기
 name = st.text_input('이름을 입력해주세요 : ')
@@ -132,7 +132,7 @@ if st.button('특징 생성'):
         잘_맞는_mbti = ', '.join(mbti_data[mbti]['잘 맞는 MBTI'])
 
         st.write(f"{name}님! 당신의 MBTI 유형은 {mbti}입니다!")
-        st.write(f"**특징**: {특징}")
+        st.write(f">>특징<<: {특징}")
         st.write(f"**어울리는 직업**: {직업}")
         st.write(f"**잘 맞는 MBTI 유형**: {잘_맞는_mbti}")
     else:

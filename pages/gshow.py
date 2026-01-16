@@ -26,7 +26,7 @@ plt.figure(figsize=(10,5))
 for ind in range(len(keywordlist)):
     plt.plot(list(df.columns[1:]),ylist[ind], marker='o')
 # 날짜별 값만 추출
-plt.title(f'{keywords} 키워드 11월 데이터')
+plt.title(f'{keywordlist} 키워드 11월 데이터')
 plt.xlabel('Date')
 plt.ylabel('Value')
 plt.grid(True)

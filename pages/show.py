@@ -25,7 +25,10 @@ df_plot.columns = ['Value']
 # 그래프 그리기
 plt.figure(figsize=(10,5))
 #plt.plot(df_plot.index, df_plot['Value'], marker='o')
-plt.plot(df['날짜'],df[keyword],marker='o')
+fig, ax = plt.subplots()
+ax.plot(df['날짜'], df[keyword], marker='o')
+st.pyplot(fig)
+
 plt.title(f'{keyword} 키워드 11월 데이터')
 plt.xlabel('Date')
 plt.ylabel('Value')

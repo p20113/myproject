@@ -2,7 +2,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import pandas as pd
 
-df = pd.read_csv('data.csv', encoding='cp949')
+df = pd.read_csv('data.csv')
 klist=df['키워드'].tolist
 # Streamlit title
 st.title("News data")

@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # Load data
-file_path = 'daily_temp.csv'  # Update this with the correct path
+file_path = 'data.csv'  # Update this with the correct path
 data = pd.read_csv(file_path)
 
 # Clean and prepare data

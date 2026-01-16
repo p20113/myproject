@@ -28,14 +28,14 @@ plt.figure(figsize=(10,5))
 fig, ax = plt.subplots()
 ax.plot(df['날짜'], df[keyword], marker='o')
 st.pyplot(fig)
-
+'''
 plt.title(f'{keyword} 키워드 11월 데이터')
 plt.xlabel('Date')
 plt.ylabel('Value')
 plt.grid(True)
 plt.xticks(rotation=45)
 plt.tight_layout()
-
+'''
 # Streamlit에 출력
 st.pyplot(plt)
 

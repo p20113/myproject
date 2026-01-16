@@ -2,28 +2,35 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import pandas as pd
 
-# Load data
-file_path = 'data.csv'  # Update this with the correct path
-data = pd.read_csv(file_path)
-
-# Clean and prepare data
-data['날짜'] = pd.to_datetime(data['날짜'].str.strip())
-data = data.dropna(subset=['날짜'])
-data['연도'] = data['날짜'].dt.year
-
-# Calculate yearly statistics
-yearly_stats = data.groupby('연도').agg({
-    '평균기온(℃)': 'mean',
-    '최저기온(℃)': 'min',
-    '최고기온(℃)': 'max'
-}).reset_index()
-
+df = pd.read_csv('testout.csv', encoding='cp949')
+klist=df['키워드'].tolist
 # Streamlit title
-st.title("Yearly Temperature Trends")
+st.title("News data")
 
 # User choice for graph type
-chart_type = st.selectbox("Select chart type:", ("Line Chart", "Bar Chart"))
+chart_type = st.selectbox("Select chart type:", (klist))
 
+
+keyword = chart_type
+df_keyword = df[df['키워드'] == keyword]
+
+# 날짜별 값만 추출
+df_plot = df_keyword.drop(columns=['키워드']).T  # 전치
+df_plot.columns = ['Value']  # 컬럼 이름 변경
+df_plot.index = pd.to_datetime(df_plot.index)  # 인덱스를 날짜로 변환
+
+print(df_plot)
+plt.figure(figsize=(10,5))
+plt.plot(df_plot.index, df_plot['Value'], marker='o')
+plt.title(f'{keyword} 키워드 11월 데이터')
+plt.xlabel('Date')
+plt.ylabel('Value')
+plt.grid(True)
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+
+"""
 if chart_type == "Line Chart":
     # Plot line chart
     plt.figure(figsize=(12, 6))
@@ -47,4 +54,4 @@ elif chart_type == "Bar Chart":
     plt.ylabel('Temperature (℃)')
     plt.title('Yearly Temperature Trends')
     plt.legend()
-    st.pyplot(plt)
+    st.pyplot(plt)"""

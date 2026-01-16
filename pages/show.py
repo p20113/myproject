@@ -30,28 +30,4 @@ plt.xticks(rotation=45)
 plt.tight_layout()
 plt.show()
 
-"""
-if chart_type == "Line Chart":
-    # Plot line chart
-    plt.figure(figsize=(12, 6))
-    plt.plot(yearly_stats['연도'], yearly_stats['평균기온(℃)'], label='Average Temperature (℃)', marker='o')
-    plt.plot(yearly_stats['연도'], yearly_stats['최저기온(℃)'], label='Minimum Temperature (℃)', marker='o')
-    plt.plot(yearly_stats['연도'], yearly_stats['최고기온(℃)'], label='Maximum Temperature (℃)', marker='o')
-    plt.xlabel('Year')
-    plt.ylabel('Temperature (℃)')
-    plt.title('Yearly Temperature Trends')
-    plt.legend()
-    plt.grid(True)
-    st.pyplot(plt)
 
-elif chart_type == "Bar Chart":
-    # Plot bar chart
-    plt.figure(figsize=(12, 6))
-    plt.bar(yearly_stats['연도'] - 0.2, yearly_stats['평균기온(℃)'], width=0.2, label='Average Temperature (℃)')
-    plt.bar(yearly_stats['연도'], yearly_stats['최저기온(℃)'], width=0.2, label='Minimum Temperature (℃)')
-    plt.bar(yearly_stats['연도'] + 0.2, yearly_stats['최고기온(℃)'], width=0.2, label='Maximum Temperature (℃)')
-    plt.xlabel('Year')
-    plt.ylabel('Temperature (℃)')
-    plt.title('Yearly Temperature Trends')
-    plt.legend()
-    st.pyplot(plt)"""

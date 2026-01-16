@@ -10,6 +10,7 @@ st.title("News data")
 keyword = st.selectbox("Select keyword:", (klist))
 df_keyword = df[df['키워드'] == keyword]
 st.dataframe(df_keyword)
+st.write(df)
 # 날짜별 값만 추출
 
 #df_plot = df_keyword.drop(columns=['키워드']).T  # 전치

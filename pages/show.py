@@ -12,7 +12,8 @@ st.title("News data")
 
 # 키워드 선택
 keyword = st.selectbox("Select keyword:", klist)
-df_keyword = df[df['날짜'] == keyword]
+df_keyword = df['날짜',keyward] 
+#df_keyword = df[df['날짜'] == keyword]
 st.dataframe(df_keyword)
 # 선택한 키워드 데이터 추출
 df_plot = df[['날짜', keyword]].copy()

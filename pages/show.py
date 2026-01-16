@@ -8,11 +8,9 @@ klist=df['키워드'].tolist()
 st.title("News data")
 
 # User choice for graph type
-chart_type = st.selectbox("Select chart type:", (klist))
-
-keyword = str(chart_type)
-df_keyword = df[keyword]
-
+keyword = st.selectbox("Select keyword:", (klist))
+df_keyword = df[df['키워'] == keyword]
+st.dataframe(df_keyword)
 # 날짜별 값만 추출
 df_plot = df_keyword.drop(columns=['키워드']).T  # 전치
 df_plot.columns = ['Value']  # 컬럼 이름 변경

@@ -13,8 +13,7 @@ df = pd.DataFrame(data)
 df["날짜"] = pd.to_datetime(df["날짜"])
 
 # Streamlit에서 선택한 키워드라고 가정
-# 실제 사용 시 st.multiselect에서 가져오기
-selected_keywords = ["부고", "관심"]
+# 실제 사용 시 st.multiselect에서 가져오
 
 # 그래프 초기화
 plt.figure(figsize=(8, 4))

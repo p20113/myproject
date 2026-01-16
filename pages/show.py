@@ -11,7 +11,7 @@ st.title("News data")
 chart_type = st.selectbox("Select chart type:", (klist))
 
 keyword = str(chart_type)
-df_keyword = df[df['키워드'] == keyword]
+df_keyword = [df[keywor'] ]
 
 # 날짜별 값만 추출
 df_plot = df_keyword.drop(columns=['키워드']).T  # 전치

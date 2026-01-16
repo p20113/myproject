@@ -26,5 +26,5 @@ plt.grid(True)
 plt.xticks(rotation=45)
 plt.tight_layout()
 plt.show()
-
+st.write("이것은 기본 텍스트 출력입니다.")
 

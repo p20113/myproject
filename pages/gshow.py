@@ -7,9 +7,26 @@ klist=df['키워드'].tolist()
 st.title("News data")
 
 # User choice for graph type
-keyword = st.selectbox("Select keyword:", (klist))
+selected_options = st.multiselect(
+    "Select keyword:",          # 사용자에게 보여질 레이블 (문자열)
+    klist,        # 선택 가능한 전체 항목 리스트 (리스트, 튜플, pandas Series, numpy array)
+)
+#keyword = st.selectbox("Select keyword:", (klist))
+keywordlist=selected_options
 st.write(df)
+ylist=list()
+keyl=list(df['키워드'])
+# User choice for graph type
 # 날짜별 값만 추출
+targetind=0
+for tarkey in keywordlist:
+    targetind=keyl.index(tarkey)
+    ylist.append(list(df.iloc[targetind,1:]))
+plt.figure(figsize=(10,5))
+for ind in range(len(keywordlist)):
+    plt.plot(list(df.columns[1:]),ylist[ind], marker='o')
+# 날짜별 값만 추출
+'''
 ylist=list()
 keyl=list(df['키워드'])
 # User choice for graph type
@@ -18,6 +35,7 @@ targetind=keyl.index(keyword)
 ylist=list(df.iloc[targetind,1:])
 plt.figure(figsize=(10,5))
 plt.plot(list(df.columns[1:]),ylist, marker='o')
+'''
 plt.title(f'{keyword} 키워드 11월 데이터')
 plt.xlabel('Date')
 plt.ylabel('Value')

@@ -16,7 +16,7 @@ st.dataframe(df_keyword)
 #df_plot.columns = ['Value']  # 컬럼 이름 변경
 #df_plot.index = pd.to_datetime(df_plot.index)  # 인덱스를 날짜로 변환
 plt.figure(figsize=(10,5))
-plt.plot(list(df.columns[1:]),df.loc[keyword].tolist(), marker='o')
+plt.plot(list(df.columns[1:]),df.loc[keyword].tolist()[1:], marker='o')
 plt.title(f'{keyword} 키워드 11월 데이터')
 plt.xlabel('Date')
 plt.ylabel('Value')

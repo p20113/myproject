@@ -13,7 +13,7 @@ st.dataframe(df_keyword)
 st.write(df)
 # 날짜별 값만 추출
 ylist=list()
-keyl=df['키워드']
+keyl=list(df['키워드'])
 targetind=keyl.index(keyword)
 for dictkey in df[1:]:
   ylist.append(df[dictkey][targetind])

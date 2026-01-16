@@ -37,6 +37,6 @@ plt.xticks(rotation=45)
 plt.tight_layout()
 '''
 # Streamlit에 출력
-st.pyplot(plt)
+#st.pyplot(plt)
 
 st.write("이것은 기본 텍스트 출력입니다.")

@@ -1,34 +1,27 @@
-import streamlit as st
 import matplotlib.pyplot as plt
 import pandas as pd
 
-df = pd.read_csv('data.csv')
-klist=df.columns.tolist()
+df = pd.read_csv('olddata.csv')
+klist=df['키워드'].tolist()
 # Streamlit title
 st.title("News data")
 
 # User choice for graph type
 keyword = st.selectbox("Select keyword:", (klist))
-df = pd.DataFrame(data)
-df["날짜"] = pd.to_datetime(df["날짜"])
-
-# Streamlit에서 선택한 키워드라고 가정
-# 실제 사용 시 st.multiselect에서 가져오
-
-# 그래프 초기화
-plt.figure(figsize=(8, 4))
-
-# 선택한 키워드만 그리기
-plt.plot(df["날짜"], df[keyword], marker='o', label=keyword)
-
-# 그래프 꾸미기
-plt.xlabel("날짜")
-plt.ylabel("값")
-plt.title("선택한 키워드별 날짜 그래프")
-plt.legend()
+df_keyword = df[df['키워'] == keyword]
+df_keyword = df[df['키워드'] == keyword]
+st.dataframe(df_keyword)
+# 날짜별 값만 추출
+df_plot = df_keyword.drop(columns=['키워드']).T  # 전치
+df_plot.columns = ['Value']  # 컬럼 이름 변경
+df_plot.index = pd.to_datetime(df_plot.index)  # 인덱스를 날짜로 변환
+plt.figure(figsize=(10,5))
+plt.plot(df_plot.index, df_plot['Value'], marker='o')
+plt.title(f'{keyword} 키워드 11월 데이터')
+plt.xlabel('Date')
+plt.ylabel('Value')
 plt.grid(True)
 plt.xticks(rotation=45)
-plt.tight_layout()  # 레이블 겹침 방지
-
-# Streamlit에 표시
-st.pyplot(plt)
+plt.tight_layout()
+plt.show()
+st.write("이것은 기본 텍스트 출력입니다.")

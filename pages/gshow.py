@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import pandas as pd
-
+import streamlit as st
 df = pd.read_csv('olddata.csv')
 klist=df['키워드'].tolist()
 # Streamlit title

@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 df = pd.read_csv('data.csv')
-klist=df.iloc[0].tolist()
+klist=df.columns.tolist()
 # Streamlit title
 st.title("News data")
 

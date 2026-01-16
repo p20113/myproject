@@ -8,7 +8,7 @@ st.title("News data")
 
 # User choice for graph type
 keyword = st.selectbox("Select keyword:", (klist))
-df_keyword = df[df['키워'] == keyword]
+df_keyword = df[df['키워드'] == keyword]
 df_keyword = df[df['키워드'] == keyword]
 st.dataframe(df_keyword)
 # 날짜별 값만 추출

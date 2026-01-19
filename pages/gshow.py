@@ -5,7 +5,7 @@ df = pd.read_csv('olddata.csv')
 klist=df['키워드'].tolist()
 # Streamlit title
 st.title("News data")
-
+st.write("아래 Select keyword를 눌러보세요(중복선택 가능)")
 # User choice for graph type
 selected_options = st.multiselect(
     "Select keyword:",          # 사용자에게 보여질 레이블 (문자열)
@@ -13,6 +13,7 @@ selected_options = st.multiselect(
 )
 #keyword = st.selectbox("Select keyword:", (klist))
 keywordlist=selected_options
+st.write('원본 데이터 목록')
 st.write(df)
 ylist=list()
 keyl=list(df['키워드'])
@@ -26,9 +27,10 @@ plt.figure(figsize=(10,5))
 for ind in range(len(keywordlist)):
     plt.plot(list(df.columns[1:]),ylist[ind], marker='o')
 # 날짜별 값만 추출
-plt.title(f'{keywordlist} 키워드 11월 데이터')
+st.write('아래 그래프는 선택한 키워드가 한달동안 뉴스기사 제목에서 몇번 나왔는지 날짜별로 정리해줍니다')
+plt.title(f'2025-11')
 plt.xlabel('Date')
-plt.ylabel('Value')
+plt.ylabel('Counts')
 plt.grid(True)
 plt.xticks(rotation=45)
 plt.tight_layout()
